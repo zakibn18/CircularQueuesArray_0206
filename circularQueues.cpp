@@ -1,22 +1,71 @@
+/**
+ * @mainpage Doccumentation circular Queues
+ * 
+ * @section Introduction
+ * project ini merupakan project struktur data
+ * menggunakan struktur data Queues dengna pendekatan circular array.
+ * 
+ * @section Operations
+ * - en queue for insert elements into queues
+ * - de queue for delete elements from queues
+ * - show data
+ * 
+ * @section How to use
+ * 1. Insert
+ * 2. Delete 
+ * 3. Display 
+ * 4. Exit 
+ * 
+ * @author profile 
+ * - Nama   : Zaky Ibnu Sofyan 
+ * - NIM    : 20240140206
+ * - Kelas  : E
+ * 
+ * @brief 
+ * @version 0.1
+ * @date 2025-06-23
+ * 
+ * @copyright Gibran@umy.ac.id (c) 2025
+ * 
+ */
+
 #include <iostream>
 using namespace std;
 
+
+/**
+ * @class Queues
+ * @brief Kelas ini digunakan untuk mengoprasikan queues
+ * 
+ */
 class Queues
 {
 private:
-  int FRONT, REAR, max = 5;
-  int queue_array[5];
+  int FRONT; ///< private variable front untuk menyimpan posisi depan antrian
+  int REAR; ///< variable private rear untuk menyimpan posisi belakanng antrian
+  int max = 5; ///< variable private max untuk menyimpan ukuran maximum antrian
+  int queue_array[5]; ///< queue_array untuk menyimpan elemen antrian
 
 public:
+  /**
+   * @brief Construct a new Queues object
+   * set default queues NULL
+   * with front = -1 and rear = -1 
+   */
   Queues()
   {
     FRONT = -1;
     REAR = -1;
   }
 
+  /**
+   * @brief Methode for entering data into Queues
+   * data dimasukkan ke queue_array pada posisi REAR
+   * 
+   */
   void insert()
   {
-    int num;
+    int num; ///< variable untuk menyimpan data yang akan dimasukkan 
     cout << "Enter a number : ";
     cin >> num;
     cout << endl;
@@ -45,6 +94,11 @@ public:
     queue_array[REAR] = num;
   }
 
+  /**
+   * @brief Methode untuk menghapus data dalam antrian
+   * data yang ada di dalam front akan dihapus
+   * 
+   */
   void remove()
   {
     // cek apakah antrian kosong
@@ -71,10 +125,15 @@ public:
     }
   }
 
+  /**
+   * @brief Methode untuk menampilkan element yang ada di dalam array
+   * menampilkan data yang ada di dalam front hingga rear
+   * 
+   */
   void display()
   {
-    int FRONT_position = FRONT;
-    int REAR_position = REAR;
+    int FRONT_position = FRONT; ///< varaible unutk menyimpan posisi depan antrian
+    int REAR_position = REAR; ///< varaible untuk menyimpan posisi belakan antrian
 
     // cek apakah antrian kosong
     if (FRONT == -1)
@@ -118,10 +177,15 @@ public:
   }
 };
 
+/**
+ * @brief Progarm utama untuk menjalankan program
+ * 
+ * @return int
+ */
 int main()
 {
-  Queues q;
-  char ch;
+  Queues q; ///< objek yang digunakan Queues
+  char ch; ///< variable untuk menyimpan pilihan menu
 
   while (true)
   {
